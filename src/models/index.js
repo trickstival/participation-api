@@ -2,9 +2,10 @@ const { Sequelize } = require('sequelize')
 const { log } = require('../logging')
 const { state } = require('../state')
 
-module.exports.startModels = () => {
+module.exports = () => {
   const sequelize = new Sequelize({
     dialect: 'mysql',
+    database: 'participationapp',
     host: process.env.DATABASE_HOST,
     username: process.env.DATABASE_USER,
     password: process.env.DATABASE_PASSWORD,
@@ -13,5 +14,9 @@ module.exports.startModels = () => {
 
   state.models = {
     Participation: require('./participation.model')(sequelize)
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    sequelize.sync()
   }
 }

@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize')
 
 module.exports = (sequelize) => {
-  const Participation = Object.create(Model)
+  class Participation extends Model {}
   Participation.init(
     {
       firstName: DataTypes.STRING,
