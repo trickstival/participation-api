@@ -1,6 +1,9 @@
 const express = require('express')
+const dotenv = require('dotenv')
 const { log, startLogging } = require('./logging')
 const { state } = require('./state')
+
+dotenv.config()
 
 const app = state.app = express()
 startApp()
@@ -16,7 +19,7 @@ function startApp () {
 
 function catchHttpErrors () {
   app.use((err, req, res, next) => {
-    log.error(err)
+    log.error(err.stack)
     res.status(500).send('Something went wrong')
   })
 }

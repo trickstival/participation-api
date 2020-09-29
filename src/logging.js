@@ -18,7 +18,7 @@ function startLogger () {
 
 function logHttpRequests () {
   state.app.use((req, res, next) => {
-    debug(`${req.method} ${req.url}`)
+    log.debug(`${req.method} ${req.url}`)
     next()
   })
 }
