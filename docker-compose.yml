@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+  api:
+    build: .
+    # Dev environment
+    command: yarn start:debug
+    ports:
+      - "3000:3000"
+      - "9229:9229"
+    volumes:
+      - .:/opt/api
+  mysql:
+    image: mysql:5.7.30
+    restart: always
+    command: --init-file /data/application/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql

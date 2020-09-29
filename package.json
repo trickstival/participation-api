@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A participation app",
+  "main": "src/index.js",
+  "author": "trickstival",
+  "license": "MIT",
+  "scripts": {
+    "start:prod": "node src/index.js",
+    "start:debug": "nodemon --inspect=0.0.0.0:9229 src/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.2.1",
+    "sequelize": "^6.3.5",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
