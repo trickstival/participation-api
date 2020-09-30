@@ -4,5 +4,6 @@ You will need [docker](https://docs.docker.com/) and [docker-compose](https://do
 
 To start the project, run:
 ```bash
-docker-compose up -d
+cp .env.dev .env
+docker-compose up
 ```

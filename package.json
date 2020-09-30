@@ -6,8 +6,9 @@
   "author": "trickstival",
   "license": "MIT",
   "scripts": {
-    "start:prod": "node src/index.js",
-    "start:debug": "nodemon --inspect=0.0.0.0:9229 src/index.js"
+    "start:prod": "node -r dotenv/config src/index.js",
+    "start:debug": "nodemon -r dotenv/config --inspect=0.0.0.0:9229 src/index.js",
+    "test": "jest --testTimeout=10000"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -19,6 +20,8 @@
     "winston": "^3.3.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.4"
+    "jest": "^26.4.2",
+    "nodemon": "^2.0.4",
+    "supertest": "^5.0.0"
   }
 }
