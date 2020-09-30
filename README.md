@@ -9,3 +9,8 @@ docker-compose up
 ```
 
 The project already has debugging configured for vscode.
+
+Testing:
+```bash
+yarn test
+```
