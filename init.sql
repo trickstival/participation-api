@@ -1,1 +1,2 @@
 CREATE DATABASE IF NOT EXISTS participationapp;
+CREATE DATABASE IF NOT EXISTS participationtest;

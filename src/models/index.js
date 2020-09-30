@@ -2,8 +2,8 @@ const { Sequelize } = require('sequelize')
 const { log } = require('../logging')
 const { state } = require('../state')
 
-module.exports = () => {
-  const sequelize = new Sequelize({
+module.exports = async () => {
+  const sequelize = state.sequelize = new Sequelize({
     dialect: 'mysql',
     database: process.env.DATABASE_NAME,
     host: process.env.DATABASE_HOST,
@@ -17,6 +17,6 @@ module.exports = () => {
   }
 
   if (process.env.NODE_ENV !== 'production') {
-    sequelize.sync()
+    await sequelize.sync()
   }
 }

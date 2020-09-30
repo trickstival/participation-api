@@ -7,7 +7,7 @@ const startControllers = require('./controllers')
 
 let app
 
-function createApp () {
+async function createApp () {
     app = state.app = express()
     app.use(express.json())
     app.use(cors({
@@ -15,8 +15,9 @@ function createApp () {
     }))
     startLogging(app)
     catchHttpErrors()
-    startModels()
+    await startModels()
     startControllers()
+    return app
 }
 
 function catchHttpErrors () {

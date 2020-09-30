@@ -7,3 +7,5 @@ To start the project, run:
 cp .env.dev .env
 docker-compose up
 ```
+
+The project already has debugging configured for vscode.

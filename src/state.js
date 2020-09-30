@@ -1,4 +1,5 @@
 module.exports.state = {
   app: null,
-  models: null
+  models: null,
+  sequelize: null
 }
