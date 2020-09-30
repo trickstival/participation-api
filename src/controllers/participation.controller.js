@@ -10,7 +10,14 @@ module.exports = () => {
       // TODO: automatic error propagation
       try {
         const participations = await participationService.findAll()
-        res.send(participations)
+        res.send(
+          participations.map(p => ({
+            firstName: p.firstName,
+            lastName: p.lastName,
+            id: p.id,
+            participation: p.participation
+          }))
+        )
       } catch (err) {
         next(err)
       }
@@ -26,8 +33,8 @@ module.exports = () => {
           })
         }
 
-        await participationService.add(req.body)
-        res.send('successfully inserted participation')
+        const participation = await participationService.add(req.body)
+        res.send({ id: participation.id })
       } catch (err) {
         next(err)
       }

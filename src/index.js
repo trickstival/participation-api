@@ -1,4 +1,5 @@
 const express = require('express')
+const cors = require('cors')
 const dotenv = require('dotenv')
 const { log, startLogging } = require('./logging')
 const { state } = require('./state')
@@ -12,6 +13,9 @@ startApp()
 
 function startApp () {
     app.use(express.json())
+    app.use(cors({
+      origin: process.env.ALLOWED_ORIGIN
+    }))
     startLogging(app)
     catchHttpErrors()
     startModels()

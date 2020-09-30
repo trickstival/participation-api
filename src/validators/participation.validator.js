@@ -3,11 +3,11 @@ const Joi = require('joi')
 module.exports = {
   create: Joi.object({
     firstName: Joi.string()
-      .min(3)
+      .min(2)
       .max(30)
       .required(),
     lastName: Joi.string()
-      .min(3)
+      .min(2)
       .max(30)
       .required(),
     participation: Joi.number()
